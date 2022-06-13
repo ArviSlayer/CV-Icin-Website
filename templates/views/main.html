@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html id="page" class="dark">
+  <head>
+    <script src="https://unpkg.com/windicss-runtime-dom"></script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Author: {% block page_author %}{{ main_metadata('author') }}{% endblock %} -->
+    <!-- Title: {% block page_title %}{{ main_metadata('title') }}{% endblock %} -->
+    <!-- Description: {% block page_desc %}{{ main_metadata('desc') }}{% endblock %} -->
+    <!-- Image: {% block page_image %}{{ main_metadata('image') }}{% endblock %} -->
+    <!-- Locale: {% block page_locale %}{{ main_metadata('locale') }}{% endblock %} -->
+    <!-- Color: {% block page_color %}#e5e7eb{% endblock %} -->
+    
+    <!-- Primary Meta Tags -->
+    <title> {{ self.page_title() }} - {{ self.page_author() }} </title>
+    <meta name="title" content="{{ self.page_title() }}" />
+    <meta name="author" content="{{ self.page_author() }}" />
+    <meta name="description" content="{{ self.page_desc() }}"/>
+    <meta name="theme-color" content="{{ self.page_color() }}" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ self.page_author() }}" />
+    <meta property="og:title" content="{{ self.page_title() }}"/>
+    <meta property="og:description" content="{{ self.page_desc() }}" />
+    <meta property="og:locale" content="{{ self.page_locale() }}" />
+    <meta property="og:image" content="{{ self.page_image() }}" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:author" content="{{ self.page_author() }}" />
+    <meta property="twitter:title" content="{{ self.page_title() }}" />
+    <meta property="twitter:description" content="{{ self.page_desc() }}" />
+    <meta name="twitter:image:src" content="{{ self.page_image() }}"/>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="{{ main_metadata('favicon') }}" type="image/x-icon" />
+
+    {% block page_css %} {% endblock %}
+  </head>
+
+  <body class="bg-gray-100 dark:bg-gray-800 block" hidden>
+    {% block page_navbar %}
+    {% include "components/navbar.html" %}
+    {% endblock %}
+
+    {% block page_body %} {% endblock %}
+
+    {% block page_footer %}
+    {% include "components/footer.html" %}
+    {% endblock %}
+  </body>
+  
+  {% block page_scripts %} {% endblock %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</html>

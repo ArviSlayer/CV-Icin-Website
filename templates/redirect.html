@@ -1,0 +1,19 @@
+{% extends "views/main.html" %}
+
+{% block page_navbar %} {% endblock %}
+
+{% block page_author %}{{ social.author }}{% endblock %}
+{% block page_title %}{{ social.title }}{% endblock %}
+{% block page_desc %}{{ social.desc }}{% endblock %}
+
+{% if "color" in social %}
+{% block page_color %}{{ social.color }}{% endblock %}
+{% endif %}
+
+{% block page_footer %} {% endblock %}
+
+{% block page_scripts %}
+<script type="text/javascript">
+    window.location.href = "{{ social.url }}";
+</script>
+{% endblock %}
